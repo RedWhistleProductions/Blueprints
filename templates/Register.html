@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>Registration Page</title>
+	</head>
+	
+	<body>
+		
+		<form id = "Registration" name = "Registration" method = "POST" action = "">
+			<center>
+			<h1>Thanks for signing up!</h1>
+			<!-- Display Error Messages -->
+			{% with Errors = get_flashed_messages() %}
+				{% if Errors %}
+					<ul>
+						{% for Error in Errors %}
+							<li><strong>{{Error}}</strong></li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			{% endwith %}
+			<table>
+				<tr>
+					<td><label>User Name</label></td>
+					<td><input name = "User_Name"></td>
+				
+					<td><label>Email</label></td>
+					<td><input name = "Email"></td>
+				</tr>
+				<tr>
+					<td><label>First Name</label></td>
+					<td><input name = "First"></td>
+				
+					<td><label>Last Name</label></td>
+					<td><input name = "Last"></td>
+				</tr>
+				<tr>
+					<td><label>Password</label></td>
+					<td><input name ="Password_1" type = "password"></td>
+				
+					<td><label>Confirm Password</label></td>
+					<td><input name = "Password_2" type = "password"></td>
+				</tr>
+				
+			</table>
+			<input type = "Submit" value = "Submit">
+			</center>
+		</form>
+	</body>
+</html>

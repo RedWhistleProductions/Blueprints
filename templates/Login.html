@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Please Sign In</title>
+</head>
+
+<!-- Form validation messages -->
+{% with Errors = get_flashed_messages() %}
+{% if Errors %}
+{% for Error in Errors %}
+<strong>{{Error}}</strong>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<!-- Local Log_In -->
+<form name="Log_In" id="Log_In" method="POST" action="{{url_for('Login')}}">
+    <h1>Please Sign In</h1>
+    <table>
+        <tr>
+            <td><label>User Name</label></td>
+            <td><input name="User_Name"></td>
+        </tr>
+        <tr>
+            <td><label>Password</label></td>
+            <td><input type="password" name="Password"></td>
+        </tr>
+    </table>
+    <input type="submit" value="Log In">
+</form>
+<!-- End Local Log_In -->
+<hr>
+{% include 'Google_Sign_In.html' %}
+
+</body>
+</html>
