@@ -1,5 +1,4 @@
-from flask import Blueprint, request, redirect, url_for, flash, make_response
-from flask import session as Flask_Session
+from flask import Blueprint, request, redirect, make_response
 from oauth2client.client import flow_from_clientsecrets, FlowExchangeError
 
 import httplib2, json, requests
