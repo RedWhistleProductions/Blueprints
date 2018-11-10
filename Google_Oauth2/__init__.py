@@ -76,9 +76,12 @@ def init(app=None, Flask_Session = None, Client_Secret='client_secrets.json'):
 
         data = answer.json()
 
-        Flask_Session['username'] = data['name']
-        Flask_Session['picture'] = data['picture']
-        Flask_Session['email'] = data['email']
+        Flask_Session['User_Name'] = data['name']
+        Flask_Session['Picture'] = data['picture']
+        Flask_Session['Email'] = data['email']
+        name_array = Flask_Session['User_Name'].split()
+        Flask_Session['First'] = name_array[0]
+        Flask_Session['Last'] = name_array[1]
 
         return "Conected"
 
@@ -96,9 +99,9 @@ def init(app=None, Flask_Session = None, Client_Secret='client_secrets.json'):
 
         del Flask_Session['access_token']
         del Flask_Session['gplus_id']
-        del Flask_Session['username']
-        del Flask_Session['email']
-        del Flask_Session['picture']
+        del Flask_Session['User_Name']
+        del Flask_Session['Email']
+        del Flask_Session['Picture']
         return redirect("/Login")
 
     app.register_blueprint(Google_Oauth2)
